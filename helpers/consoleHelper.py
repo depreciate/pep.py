@@ -21,14 +21,14 @@ def printServerStartHeader(asciiArt=True):
 		print("                         o.o o . o")
 		print("                        oo...")
 		print("                    __[]__")
-		print("    nyo -->  _\\:D/_/o_o_o_|__     u wot m8")
+		print("   ilyt -->  _\\:D/_/o_o_o_|__     u wot m8")
 		print("             \\\"\"\"\"\"\"\"\"\"\"\"\"\"\"/")
 		print("              \\ . ..  .. . /")
 		print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^{}".format(bcolors.ENDC))
 
 	printColored("> Welcome to pep.py osu!bancho server v{}".format(glob.VERSION), bcolors.GREEN)
-	printColored("> Made by the Ripple team", bcolors.GREEN)
-	printColored("> {}https://zxq.co/ripple/pep.py".format(bcolors.UNDERLINE), bcolors.GREEN)
+	printColored("> Made by the Ripple team, improved by Yozora", bcolors.GREEN)
+	printColored("> {}https://github.com/yozoraosu/pep.py".format(bcolors.UNDERLINE), bcolors.GREEN)
 	printColored("> Press CTRL+C to exit\n", bcolors.GREEN)
 
 def printNoNl(string):
