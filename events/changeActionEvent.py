@@ -51,7 +51,7 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 		userToken.relaxing = True
 		userToken.relaxAnnounce = True
 		serverPackets.notification("Hey, you've just enabled relax! The leaderboards should now change.")
-	elif packetData["actionMods"] != 128 ==  and userToken.relaxing == True and userToken.relaxAnnounce == True:
+	elif packetData["actionMods"] != 128 and userToken.relaxing == True and userToken.relaxAnnounce == True:
 		userToken.relaxing = False
 		usertoken.relaxAnnounce = False
 		serverPackets.notification("Hey, you've just disabled relax! The leaderboards will now go back to normal.")
