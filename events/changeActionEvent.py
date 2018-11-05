@@ -57,6 +57,7 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 	else:
 		userToken.relaxing = False
 		if userToken.relaxAnnounce == True:
+			userToken.relaxAnnounce = False
 			userToken.enqueue(serverPackets.notification("Hey, you've disabled relax. We've changed leaderboards back to normal now."))
 	
 	# Enqueue our new user panel and stats to us and our spectators
