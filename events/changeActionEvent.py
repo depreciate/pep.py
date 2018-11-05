@@ -49,14 +49,14 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 	log.info(userToken.relaxing)
 	log.info(userToken.relaxAnnounce)
 
-	if bool(packetData["actionMods"] & 128):
+	if bool(packetData["actionMods"] & 128) == True:
 		userToken.relaxing = True
-		if userToken.relaxAnnounce = False:
+		if userToken.relaxAnnounce == False:
 			userToken.relaxAnnounce = True
 			userToken.enqueue(serverPackets.notification("Hey, you're playing with relax, we've changed the leaderboards to relax ones now!"))
 	else:
 		userToken.relaxing = False
-		if userToken.relaxAnnounce = True:
+		if userToken.relaxAnnounce == True:
 			userToken.enqueue(serverPackets.notification("Hey, you've disabled relax. We've changed leaderboards back to normal now."))
 	
 	# Enqueue our new user panel and stats to us and our spectators
