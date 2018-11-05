@@ -460,7 +460,7 @@ class token:
 			self.gameRank = stats_relax["gameRank"]
 			self.pp = stats_relax["pp"]
 		else:
-			self.gameRank = stats_relax["gameRank"]
+			self.gameRank = stats["gameRank"]
 			self.pp = stats["pp"]
 
 	def checkRestricted(self):
