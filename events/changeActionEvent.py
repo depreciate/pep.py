@@ -46,11 +46,11 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 	userToken.actionMods = packetData["actionMods"]
 	userToken.beatmapID = packetData["beatmapID"]
 
-	if m.RELAX & packetData["actionMods"] == True and userToken.relaxing == False and userToken.relaxAnnounce == False:
+	if mods.RELAX & packetData["actionMods"] == True and userToken.relaxing == False and userToken.relaxAnnounce == False:
 		userToken.relaxing = True
 		userToken.relaxAnnounce = True
 		serverPackets.notification("Hey, you've just enabled relax! The leaderboards should now change.")
-	elif m.RELAX & packetData["actionMods"] == False and userToken.relaxing == True and userToken.relaxAnnounce == True:
+	elif mods.RELAX & packetData["actionMods"] == False and userToken.relaxing == True and userToken.relaxAnnounce == True:
 		userToken.relaxing = False
 		usertoken.relaxAnnounce = False
 		serverPackets.notification("Hey, you've just disabled relax! The leaderboards will now go back to normal.")
