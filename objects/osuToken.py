@@ -79,6 +79,9 @@ class token:
 		self.gameRank = 0
 		self.pp = 0
 
+		self.relaxing = False
+		self.relaxAnnounce = False
+		
 		# Generate/set token
 		if token_ is not None:
 			self.token = token_
