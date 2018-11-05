@@ -45,19 +45,21 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 	userToken.actionMd5 = packetData["actionMd5"]
 	userToken.actionMods = packetData["actionMods"]
 	userToken.beatmapID = packetData["beatmapID"]
-	log.info(bool(packetData["actionMods"] & 128))
-	log.info(userToken.relaxing)
-	log.info(userToken.relaxAnnounce)
+#	log.info(bool(packetData["actionMods"] & 128))
+#	log.info(userToken.relaxing)
+#	log.info(userToken.relaxAnnounce)
 
 	if bool(packetData["actionMods"] & 128) == True:
 		userToken.relaxing = True
 		userToken.actionText = "With Relax " + packetData["actionText"]
+		userToken.updateCachedStats()
 		if userToken.relaxAnnounce == False:
 			userToken.relaxAnnounce = True
 			userToken.enqueue(serverPackets.notification("Hey, you're playing with relax, we've changed the leaderboards to relax ones now!"))
 	else:
 		userToken.actionText = packetData["actionText"]
 		userToken.relaxing = False
+		userToken.updateCachedStats()
 		if userToken.relaxAnnounce == True:
 			userToken.relaxAnnounce = False
 			userToken.enqueue(serverPackets.notification("Hey, you've disabled relax. We've changed leaderboards back to normal now."))
