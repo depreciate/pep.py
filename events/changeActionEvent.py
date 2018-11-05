@@ -41,7 +41,7 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 
 	# Always update action id, text, md5 and beatmapID
 	userToken.actionID = packetData["actionID"]
-	userToken.actionText = packetData["actionText"]
+	
 	userToken.actionMd5 = packetData["actionMd5"]
 	userToken.actionMods = packetData["actionMods"]
 	userToken.beatmapID = packetData["beatmapID"]
@@ -51,10 +51,12 @@ if userToken.matchID != -1 and userToken.actionID != actions.MULTIPLAYING and us
 
 	if bool(packetData["actionMods"] & 128) == True:
 		userToken.relaxing = True
+		userToken.actionText = "With Relax " + packetData["actionText"]
 		if userToken.relaxAnnounce == False:
 			userToken.relaxAnnounce = True
 			userToken.enqueue(serverPackets.notification("Hey, you're playing with relax, we've changed the leaderboards to relax ones now!"))
 	else:
+		userToken.actionText = packetData["actionText"]
 		userToken.relaxing = False
 		if userToken.relaxAnnounce == True:
 			userToken.relaxAnnounce = False

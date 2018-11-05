@@ -447,6 +447,7 @@ class token:
 		:return:
 		"""
 		stats = userUtils.getUserStats(self.userID, self.gameMode)
+		stats_relax = userUtils.getUserStatsRx(self.userId, self.gameMode)
 		log.debug(str(stats))
 		if stats is None:
 			log.warning("Stats query returned None")
@@ -455,8 +456,12 @@ class token:
 		self.accuracy = stats["accuracy"]/100
 		self.playcount = stats["playcount"]
 		self.totalScore = stats["totalScore"]
-		self.gameRank = stats["gameRank"]
-		self.pp = stats["pp"]
+		if self.relaxing == True:
+			self.gameRank = stats_relax["gameRank"]
+			self.pp = stats_relax["pp"]
+		else:
+			self.gameRank = stats_relax["gameRank"]
+			self.pp = stats["pp"]
 
 	def checkRestricted(self):
 		"""
