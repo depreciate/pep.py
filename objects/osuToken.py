@@ -447,7 +447,7 @@ class token:
 		:return:
 		"""
 		stats = userUtils.getUserStats(self.userID, self.gameMode)
-		stats_relax = userUtils.getUserStatsRx(self.userId, self.gameMode)
+		stats_relax = userUtils.getUserStatsRx(self.userID, self.gameMode)
 		log.debug(str(stats))
 		if stats is None:
 			log.warning("Stats query returned None")
